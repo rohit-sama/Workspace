@@ -2,14 +2,23 @@
 import Image from "next/image";
 import favicon from "./favicon.ico";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function Home() {
+  async function LoginWithGoogle() {
+    
+    try {
+      await signIn("google", { callbackUrl: "/dashboard" });
+    } catch (error) { 
+      console.log("error logging in")
+    } 
+  }
   return (
     <>
       <div className="flex justify-between m-5">
         <Image alt="rohit" width={50} height={50} src={favicon}></Image>
-        <Link href = '/login'><button  className="black_btn">LOGIN</button> </Link>  
+       <button onClick={LoginWithGoogle}
+        className="black_btn">LOGIN</button> 
       </div>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
