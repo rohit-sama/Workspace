@@ -28,7 +28,7 @@ const Header = () => {
       <div className="flex-col flex md:flex-row m-8 sm:flex-col justify-center -ml-[1px] font-bold p-2 items-center mt-10">
         <div className="text-[#8c8d83] flex gap-4 font-mono text-[25px]">
           <FontAwesomeIcon icon={faCaretRight} className="mt-2" height={25} />
-          @Rohitsingh<span className="blinking-cursor -m-2 -ml-5">|</span>
+          @WorkSpace<span className="blinking-cursor -m-2 -ml-5">|</span>
         </div>
         {isMobile && (
           <button
@@ -62,55 +62,45 @@ const Header = () => {
         >
           <div className="grid text-[#8c8d83] gap-3 -m-2 justify-center text-left font-bold items-center sm:flex sm:flex-row sm:gap-5">
             <Link
-              href="/"
-              className="rounded-full"
+              href="/dashboard/texteditor"
               onClick={() => {
                 setToggle(false);
               }}
             >
-              ./home
+              ./texteditor
             </Link>
             <Link
-              href="/about"
+              href="/dashboard/draw"
               onClick={() => {
                 setToggle(false);
               }}
             >
-              ./about
+              ./draw
             </Link>
             <Link
-              href="/socials"
+              href="/dashboard/call"
               onClick={() => {
                 setToggle(false);
               }}
             >
-              ./socials
+              ./call
             </Link>
             <Link
-              href="/projects"
+              href="/dashboard/chat"
               onClick={() => {
                 setToggle(false);
               }}
             >
-              ./projects
-            </Link>
-            <Link
-              href="/experience"
-              onClick={() => {
-                setToggle(false);
-              }}
-            >
-              ./experience
+              ./chat
             </Link>
           </div>
         </div>
       ) : (
         <div className="grid text-[#8c8d83] gap-3 -m-2 justify-center font-bold items-center sm:flex sm:flex-row sm:gap-5">
-          <Link href="/">./home</Link>
-          <Link href="/about">./about</Link>
-          <Link href="/socials">./socials</Link>
-          <Link href="/projects">./projects</Link>
-          <Link href="/experience">./experience</Link>
+          <Link href="/dashboard/texteditor">./texteditor</Link>
+          <Link href="/dashboard/draw">./draw</Link>
+          <Link href="/dashboard/call">./call</Link>
+          <Link href="/dashboard/chat">./chat</Link>
         </div>
       )}
     </>

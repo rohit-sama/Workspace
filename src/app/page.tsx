@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { signIn, signOut } from "next-auth/react";
 import { useContext } from "react";
 import { UserContext } from "@/context/context";
+import Link from "next/link";
 
 export default function Home() {
   const { session } = useContext(UserContext);
@@ -47,7 +48,7 @@ export default function Home() {
         className="min-h-[70vh] flex items-center justify-center"
       >
         <section className="w-full flex-center flex-col">
-          <h1 className="head_text text-black text-center">
+          <h1 className="head_text text-white text-center">
             Boost Productivity with Workspace
             <br className="max-md:hidden" />
             <span className="orange_gradient text-center">
@@ -63,9 +64,11 @@ export default function Home() {
             animate={{ x: 50 }}
             transition={{ ease: "easeOut", duration: 2 }}
           >
+            <Link href='/dashboard'>
             <button className="outline_btn text-center mr-20 mt-4 flex">
               Join Now
             </button>
+            </Link>
           </motion.div>
         </section>
       </motion.div>
