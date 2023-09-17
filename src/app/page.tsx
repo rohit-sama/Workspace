@@ -61,14 +61,20 @@ export default function Home() {
           </p>
           <motion.div
             className="flex items-center justify-center"
-            animate={{ x: 50 }}
+            animate={{ x: 60 }}
             transition={{ ease: "easeOut", duration: 2 }}
           >
-            <Link href='/dashboard'>
-            <button className="outline_btn text-center mr-20 mt-4 flex">
-              {session?.user?  "Start Working" : "Login to Start"}
+            {session?.user?  ( <Link href='/dashboard'>
+            <button className="outline_btn text-center mr-[6rem] mt-4 flex">
+              Start Working 
             </button>
-            </Link>
+            </Link>) : 
+            <button onClick={LoginWithGoogle}
+            className="outline_btn text-center mr-[6rem] mt-4 flex"> 
+            Login to Start
+            </button>
+            }
+           
           </motion.div>
         </section>
       </motion.div>

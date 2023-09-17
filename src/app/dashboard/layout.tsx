@@ -11,8 +11,7 @@ const layout = ({children}: {
   return (
     <div>
       <UserContextProvider>
-      
-      <div><Header /></div>
+      <div><Header/></div>
      {children}
      </UserContextProvider>
     </div>
