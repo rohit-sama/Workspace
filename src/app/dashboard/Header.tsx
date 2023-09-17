@@ -26,10 +26,12 @@ const Header = () => {
   return (
     <>
       <div className="flex-col flex md:flex-row m-8 sm:flex-col justify-center -ml-[1px] font-bold p-2 items-center mt-10">
+        <Link href='/dashboard'>
         <div className="text-[#8c8d83] flex gap-4 font-mono text-[25px]">
           <FontAwesomeIcon icon={faCaretRight} className="mt-2" height={25} />
           @WorkSpace<span className="blinking-cursor -m-2 -ml-5">|</span>
         </div>
+        </Link>
         {isMobile && (
           <button
             onClick={() => {

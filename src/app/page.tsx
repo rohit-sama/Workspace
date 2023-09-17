@@ -30,7 +30,7 @@ export default function Home() {
     <>
       <div className="flex justify-between m-5">
         <Image alt="rohit" width={50} height={50} src={favicon}></Image>
-        {session ? (
+        {session?.user ? (
           <button onClick={SignoutWithGoogle} className="black_btn">
             Sign out
           </button>
@@ -66,7 +66,7 @@ export default function Home() {
           >
             <Link href='/dashboard'>
             <button className="outline_btn text-center mr-20 mt-4 flex">
-              Join Now
+              {session?.user?  "Start Working" : "Login to Start"}
             </button>
             </Link>
           </motion.div>
