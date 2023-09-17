@@ -2,24 +2,44 @@
 import Image from "next/image";
 import favicon from "./favicon.ico";
 import { motion } from "framer-motion";
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
+import { useContext } from "react";
+import { UserContext } from "@/context/context";
 
 export default function Home() {
+  const { session } = useContext(UserContext);
+
   async function LoginWithGoogle() {
-    
     try {
       await signIn("google", { callbackUrl: "/dashboard" });
-    } catch (error) { 
-      console.log("error logging in")
-    } 
+    } catch (error) {
+      console.log("error logging in");
+    }
   }
+
+  async function SignoutWithGoogle() {
+    try {
+      await signOut();
+    } catch (error) {
+      console.log("error logging in");
+    }
+  }
+
   return (
     <>
       <div className="flex justify-between m-5">
         <Image alt="rohit" width={50} height={50} src={favicon}></Image>
-       <button onClick={LoginWithGoogle}
-        className="black_btn">LOGIN</button> 
+        {session ? (
+          <button onClick={SignoutWithGoogle} className="black_btn">
+            Sign out
+          </button>
+        ) : (
+          <button onClick={LoginWithGoogle} className="black_btn">
+            LOGIN
+          </button>
+        )}
       </div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -39,7 +59,7 @@ export default function Home() {
             Task Management, Chat, and Powerful Editing Tools
           </p>
           <motion.div
-          className="flex items-center justify-center"
+            className="flex items-center justify-center"
             animate={{ x: 50 }}
             transition={{ ease: "easeOut", duration: 2 }}
           >
