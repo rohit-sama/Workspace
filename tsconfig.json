@@ -39,7 +39,7 @@
     "src/lib/auth.ts",
     "src/pages/api/auth/[...nextauth].ts",
     "src/app/dashboard/layout.tsx"
-  ],
+, "src/app/dashboard/texteditor/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

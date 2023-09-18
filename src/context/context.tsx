@@ -40,7 +40,11 @@ export function UserContextProvider({ children }: UserContextProviderProps) {
       });
   },[]);
 
+
+ 
+
+
   return (
-    <UserContext.Provider value={{ session }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ session} }>{children}</UserContext.Provider>
   );
 }
