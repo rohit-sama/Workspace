@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { session } = useContext(UserContext);
   return (
     <div>
-      {session && (
+      {session ? (
         <div className="flex justify-center gap-6 items-center h-[70vh]">
           <div>
             <Image
@@ -25,7 +25,7 @@ const Dashboard = () => {
             <div className="blue_gradient">{session?.user.email}</div>
           </div>
         </div>
-      )}
+      ):(<div className="flex justify-center items-center h-[70vh]">Please wait while we fetch your data...</div>)}
     </div>
   );
 };
